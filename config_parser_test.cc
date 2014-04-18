@@ -30,12 +30,12 @@ class NginxStringConfigTest : public ::testing::Test {
 };
 
 TEST_F(NginxStringConfigTest, SimpleConfig) {
-    EXPECT_TRUE(ParseString("foo bar;"));
+    EXPECT_TRUE(ParseString("foo bar; "));
     EXPECT_EQ(1, out_config_.statements_.size());
     EXPECT_EQ(2, out_config_.statements_[0]->tokens_.size());
 }
 
 TEST_F(NginxStringConfigTest, DoubleNestedConfig) {
-    EXPECT_TRUE(ParseString("foo { bar { baz huz; } }"));
+    EXPECT_TRUE(ParseString("foo { bar { baz huz; } } "));
 } 
 
